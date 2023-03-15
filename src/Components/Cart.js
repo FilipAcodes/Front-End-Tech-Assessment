@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CartContext } from "./CartContext";
 import { useContext } from "react";
-import Checkout from "../Checkout";
+import Checkout from "./Checkout";
 
 const Cart = () => {
-  const { addItem } = useContext(CartContext);
+  const { addItem, setAddItem } = useContext(CartContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,10 +35,13 @@ const Cart = () => {
               return (
                 <Checkout
                   key={cartitem._id}
+                  id={cartitem._id}
                   name={cartitem.fulhausProductName}
                   price={cartitem.retailPrice}
                   image={cartitem.imageURLs && cartitem.imageURLs[index]}
                   quantity={cartitem.quantity}
+                  addItem={addItem}
+                  setAddItem={setAddItem}
                 />
               );
             });

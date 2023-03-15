@@ -1,11 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import { CartContext } from "./CartContext";
+import { useContext } from "react";
 
-const Checkout = ({ price, name, quantity, image }) => {
+const Checkout = ({ id, price, name, quantity, image }) => {
+  const { removeItemWithDupeCheck, addItem, setAddItem } =
+    useContext(CartContext);
+  const handleDelete = () => {
+    const updatedItems =
+      addItem.length > 0
+        ? addItem[0].items.filter((item) => item._id !== id)
+        : [];
+    setAddItem([{ items: updatedItems }]);
+  };
+
   return (
     <CartContainer>
       <Container>
         <StyledSideImages src={image}></StyledSideImages>
+        <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
+        <button onClick={() => removeItemWithDupeCheck({ _id: id, quantity })}>
+          MINUS
+        </button>
         <TextContainerForImage>
           <ItemName>{name}</ItemName>
         </TextContainerForImage>
@@ -63,5 +79,13 @@ const Container = styled.div`
 `;
 const PriceParagraph = styled.p`
   color: #837d7f;
+`;
+
+const DeleteButton = styled.button`
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 `;
 export default Checkout;
