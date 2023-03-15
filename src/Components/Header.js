@@ -18,20 +18,3 @@ const StyledHeader = styled.h1`
   color: white;
   background-color: black;
 `;
-
-const CartButton = styled.button`
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  background-color: black;
-  border: none;
-  color: white;
-  @media only screen and (max-width: 375px) {
-    font-size: 30px;
-    margin-top: 7px;
-    margin-left: 5px;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-`;

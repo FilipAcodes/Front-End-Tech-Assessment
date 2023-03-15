@@ -6,7 +6,12 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import Header from "./Components/Header";
 import { AiFillStar } from "react-icons/ai";
 import Footer from "./Components/Footer";
+import { CartContext } from "./Components/CartContext";
+import { useContext } from "react";
+
 function App() {
+  const { addItemWithDupeCheck } = useContext(CartContext);
+
   const [imageFetch, setImageFetch] = useState();
   useEffect(() => {
     fetch(
@@ -16,6 +21,9 @@ function App() {
       .then((result) => setImageFetch(result.data.products))
       .catch((er) => console.log(er));
   }, []);
+  const handleAddToCart = (product) => {
+    addItemWithDupeCheck(product);
+  };
 
   if (!imageFetch) {
     return <Loading />;
@@ -28,7 +36,7 @@ function App() {
       {imageFetch.map((e, i) => {
         return (
           <>
-            <ImageContainer>
+            <ImageContainer key={e._id}>
               <StyledSideImages src={e.imageURLs[i]}></StyledSideImages>
               <TextContainerForImage>
                 <ProductNameH2>{e.fulhausProductName}</ProductNameH2>
@@ -43,7 +51,7 @@ function App() {
                   <AiFillStar />
                 </StarContainer>
               </TextContainerForImage>
-              <button>
+              <button onClick={() => handleAddToCart(e)}>
                 <StyledShoppingCart />
               </button>
             </ImageContainer>
@@ -61,6 +69,7 @@ const StyledSideImages = styled.img`
   @media only screen and (max-width: 375px) {
     height: 60%;
     width: 50%;
+    min-width: 50%;
   }
 `;
 
@@ -72,6 +81,7 @@ const ImageContainer = styled.div`
     margin-top: 2px;
     margin-left: 1px;
     margin-right: 1px;
+    min-height: 100px;
   }
 `;
 
