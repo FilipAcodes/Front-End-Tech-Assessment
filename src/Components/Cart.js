@@ -40,8 +40,6 @@ const Cart = () => {
                   price={cartitem.retailPrice}
                   image={cartitem.imageURLs && cartitem.imageURLs[index]}
                   quantity={cartitem.quantity}
-                  addItem={addItem}
-                  setAddItem={setAddItem}
                 />
               );
             });

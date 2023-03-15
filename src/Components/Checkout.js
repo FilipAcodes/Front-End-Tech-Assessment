@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { CartContext } from "./CartContext";
 import { useContext } from "react";
-
+import { BsFillTrash3Fill } from "react-icons/bs";
 const Checkout = ({ id, price, name, quantity, image }) => {
-  const { removeItemWithDupeCheck, addItem, setAddItem } =
+  const { removeItemWithDupeCheck, addItem, setAddItem, addItemWithDupeCheck } =
     useContext(CartContext);
   const handleDelete = () => {
     const updatedItems =
@@ -18,16 +18,25 @@ const Checkout = ({ id, price, name, quantity, image }) => {
     <CartContainer>
       <Container>
         <StyledSideImages src={image}></StyledSideImages>
-        <DeleteButton onClick={handleDelete}>Delete</DeleteButton>
-        <button onClick={() => removeItemWithDupeCheck({ _id: id, quantity })}>
-          MINUS
-        </button>
+        <DeleteButton onClick={handleDelete}>
+          <BsFillTrash3Fill />
+        </DeleteButton>
         <TextContainerForImage>
           <ItemName>{name}</ItemName>
         </TextContainerForImage>
         <ContainerForPriceQTE>
           <PriceParagraph>${price.toLocaleString()}</PriceParagraph>
+          <ButtonNoBorder
+            onClick={() => removeItemWithDupeCheck({ _id: id, quantity })}
+          >
+            -
+          </ButtonNoBorder>
           <p>{quantity}x</p>
+          <ButtonNoBorder
+            onClick={() => addItemWithDupeCheck({ _id: id, quantity })}
+          >
+            +
+          </ButtonNoBorder>
         </ContainerForPriceQTE>
       </Container>
     </CartContainer>
@@ -70,7 +79,7 @@ const ContainerForPriceQTE = styled.div`
   margin-right: 5px;
   @media only screen and (max-width: 375px) {
     font-size: 20px;
-    gap: 85px;
+    gap: 18px;
   }
 `;
 const Container = styled.div`
@@ -82,10 +91,24 @@ const PriceParagraph = styled.p`
 `;
 
 const DeleteButton = styled.button`
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+  @media only screen and (max-width: 375px) {
+    position: absolute;
+    bottom: 15%;
+    right: 2%;
+    font-size: 20px;
+    color: red;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+`;
+const ButtonNoBorder = styled.button`
+  @media only screen and (max-width: 375px) {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    margin-top: 3px;
+  }
 `;
 export default Checkout;
