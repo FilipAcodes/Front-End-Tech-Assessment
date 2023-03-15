@@ -1,16 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { CartContext } from "./CartContext";
-import { useContext } from "react";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
 import Stars from "./SubComponents/Stars";
+import ShoppingCartButton from "./SubComponents/ShoppingCartButton";
 
 const ItemList = ({ item }) => {
-  const { addItemWithDupeCheck } = useContext(CartContext);
-
-  const handleAddToCart = (product) => {
-    addItemWithDupeCheck(product);
-  };
   return (
     <>
       {item.map((e, i) => {
@@ -23,10 +16,8 @@ const ItemList = ({ item }) => {
                 Price: {e.retailPrice.toLocaleString()}$
               </BoldParagraph>
               <Stars />
+              <ShoppingCartButton item={e} />
             </TextContainerForImage>
-            <button onClick={() => handleAddToCart(e)}>
-              <StyledShoppingCart />
-            </button>
           </ImageContainer>
         );
       })}
@@ -58,24 +49,6 @@ const TextContainerForImage = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 5px;
-  }
-`;
-
-const StyledShoppingCart = styled(MdOutlineAddShoppingCart)`
-  @media only screen and (max-width: 375px) {
-    color: red;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    background-color: #eeeeee;
-    border-radius: 8px;
-    font-size: 25px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 `;
 

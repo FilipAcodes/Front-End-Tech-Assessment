@@ -54,7 +54,7 @@ const ContainerForPriceQTE = styled.div`
   margin-right: 5px;
   @media only screen and (max-width: 375px) {
     font-size: 20px;
-    gap: 45px;
+    gap: 85px;
   }
 `;
 const Container = styled.div`

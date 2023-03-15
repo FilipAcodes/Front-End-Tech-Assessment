@@ -53,14 +53,17 @@ const Cart = () => {
 const SidebarContainer = styled.div`
   position: fixed;
   top: 0;
-  left: ${({ isOpen }) => (isOpen ? "0" : "-300px")};
-  height: 80%;
+  left: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
   overflow-y: auto;
-  width: 300px;
   background-color: #fff;
   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease-in-out;
   z-index: 9999;
+  border-bottom: 1px solid black;
+  @media only screen and (max-width: 375px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const CloseButton = styled.button`
