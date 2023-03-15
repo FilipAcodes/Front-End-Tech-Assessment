@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { VscLoading } from "react-icons/vsc";
 
-const Loading = ({ width, height, marginl, margint }) => {
+const Loading = () => {
   return (
     <CenterContainer>
       <RotatingLoad />
