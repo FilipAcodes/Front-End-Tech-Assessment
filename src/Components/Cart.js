@@ -68,6 +68,7 @@ const CloseButton = styled.button`
   top: 10px;
   right: 10px;
   color: red;
+  border: none;
 `;
 
 const CartButton = styled.button`
