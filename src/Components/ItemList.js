@@ -25,6 +25,8 @@ const ItemList = ({ item }) => {
   );
 };
 const StyledSideImages = styled.img`
+  height: 25%;
+  width: 25%;
   @media only screen and (max-width: 414px) {
     height: 60%;
     width: 50%;
@@ -33,6 +35,8 @@ const StyledSideImages = styled.img`
 `;
 
 const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   @media only screen and (max-width: 414px) {
     display: flex;
     border: 1px solid #f5f6f6;

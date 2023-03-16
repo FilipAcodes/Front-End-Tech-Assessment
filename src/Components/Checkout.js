@@ -6,6 +6,7 @@ import { BsFillTrash3Fill } from "react-icons/bs";
 const Checkout = ({ id, price, name, quantity, image }) => {
   const { removeItemWithDupeCheck, addItem, setAddItem, addItemWithDupeCheck } =
     useContext(CartContext);
+
   const handleDelete = () => {
     const updatedItems =
       addItem.length > 0
@@ -53,9 +54,11 @@ const StyledSideImages = styled.img`
 `;
 
 const CartContainer = styled.div`
-  display: flex;
-  background: #f1f1f1;
-  color: black;
+  @media only screen and (max-width: 414px) {
+    display: flex;
+    background: #f1f1f1;
+    color: black;
+  }
 `;
 const TextContainerForImage = styled.div`
   @media only screen and (max-width: 414px) {
@@ -83,8 +86,10 @@ const ContainerForPriceQTE = styled.div`
   }
 `;
 const Container = styled.div`
-  height: 0%;
-  position: relative;
+  @media only screen and (max-width: 414px) {
+    height: 0%;
+    position: relative;
+  }
 `;
 const PriceParagraph = styled.p`
   color: #837d7f;
