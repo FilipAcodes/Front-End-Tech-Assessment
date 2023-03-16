@@ -23,7 +23,7 @@ from {
 `;
 const RotatingLoad = styled(VscLoading)`
   animation: ${rotation} 1s linear infinite;
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     font-size: 45px;
   }
 `;

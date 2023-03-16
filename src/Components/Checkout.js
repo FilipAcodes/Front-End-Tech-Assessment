@@ -44,7 +44,7 @@ const Checkout = ({ id, price, name, quantity, image }) => {
 };
 
 const StyledSideImages = styled.img`
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     height: 60%;
     width: 50%;
     min-width: 50%;
@@ -58,7 +58,7 @@ const CartContainer = styled.div`
   color: black;
 `;
 const TextContainerForImage = styled.div`
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     display: flex;
     flex-direction: column;
     margin-left: 5px;
@@ -77,7 +77,7 @@ const ContainerForPriceQTE = styled.div`
   right: 0%;
   bottom: 0%;
   margin-right: 5px;
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     font-size: 20px;
     gap: 18px;
   }
@@ -91,7 +91,7 @@ const PriceParagraph = styled.p`
 `;
 
 const DeleteButton = styled.button`
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     position: absolute;
     bottom: 15%;
     right: 2%;
@@ -103,7 +103,7 @@ const DeleteButton = styled.button`
   }
 `;
 const ButtonNoBorder = styled.button`
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     border: 1px solid black;
     border-radius: 50%;
     width: 22px;

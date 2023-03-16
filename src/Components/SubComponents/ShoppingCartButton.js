@@ -20,7 +20,7 @@ const ShoppingCartButton = ({ item }) => {
 export default ShoppingCartButton;
 
 const StyledShoppingCart = styled.button`
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     color: red;
     position: absolute;
     right: 0;
@@ -41,7 +41,7 @@ const StyledShoppingCart = styled.button`
 `;
 
 const StyledIconCart = styled(MdOutlineAddShoppingCart)`
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     margin-top: 6px;
   }
 `;

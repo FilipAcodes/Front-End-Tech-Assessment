@@ -61,7 +61,7 @@ const SidebarContainer = styled.div`
   transition: left 0.3s ease-in-out;
   z-index: 9999;
   border-bottom: 1px solid black;
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     width: 100%;
     height: 100%;
   }
@@ -82,7 +82,7 @@ const CartButton = styled.button`
   background-color: black;
   border: none;
   color: white;
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     font-size: 30px;
     margin-top: 7px;
     margin-left: 5px;
@@ -100,7 +100,7 @@ const CartContent = styled.h2`
 `;
 
 const CheckOutButton = styled.button`
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     width: 100%;
     height: 50px;
     font-size: 20px;
