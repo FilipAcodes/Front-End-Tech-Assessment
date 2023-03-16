@@ -12,11 +12,13 @@ const ItemList = ({ item }) => {
             <StyledSideImages src={e.imageURLs[i]}></StyledSideImages>
             <TextContainerForImage>
               <ProductNameH2>{e.fulhausProductName}</ProductNameH2>
-              <BoldParagraph>
-                Price: {e.retailPrice.toLocaleString()}$
-              </BoldParagraph>
               <Stars />
-              <ShoppingCartButton item={e} />
+              <PriceShoppingCartContainer>
+                <BoldParagraph>
+                  Price: {e.retailPrice.toLocaleString()}$
+                </BoldParagraph>
+                <ShoppingCartButton item={e} />
+              </PriceShoppingCartContainer>
             </TextContainerForImage>
           </ImageContainer>
         );
@@ -35,8 +37,6 @@ const StyledSideImages = styled.img`
 `;
 
 const ImageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
   @media only screen and (max-width: 414px) {
     display: flex;
     border: 1px solid #f5f6f6;
@@ -71,4 +71,11 @@ const ProductNameH2 = styled.h2`
   }
 `;
 
+const PriceShoppingCartContainer = styled.div`
+  @media only screen and (min-width: 415px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
 export default ItemList;

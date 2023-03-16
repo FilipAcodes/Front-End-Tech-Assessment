@@ -20,17 +20,22 @@ const ShoppingCartButton = ({ item }) => {
 export default ShoppingCartButton;
 
 const StyledShoppingCart = styled.button`
+  color: red;
+  border: none;
+  border-radius: 50%;
+  height: 10%;
+  width: 10%;
+  margin-right: 25px;
+  font-size: 25px;
+  background-color: #eeeeee;
+
   @media only screen and (max-width: 414px) {
-    color: red;
     position: absolute;
     right: 0;
     bottom: 0;
-    background-color: #eeeeee;
     font-size: 25px;
     margin-right: 5px;
     margin-bottom: 5px;
-    border: none;
-    border-radius: 50%;
     width: 35px;
     height: 35px;
   }
@@ -41,6 +46,7 @@ const StyledShoppingCart = styled.button`
 `;
 
 const StyledIconCart = styled(MdOutlineAddShoppingCart)`
+  margin-top: 3px;
   @media only screen and (max-width: 414px) {
     margin-top: 6px;
   }

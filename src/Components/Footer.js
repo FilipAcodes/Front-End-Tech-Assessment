@@ -17,4 +17,9 @@ const StyledFooterContainer = styled.div`
   justify-content: space-around;
   background-color: black;
   color: white;
+  @media only screen and (min-width: 415px) {
+    position: absolute;
+    bottom: 0%;
+    width: 100vw;
+  }
 `;
