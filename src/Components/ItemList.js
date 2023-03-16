@@ -67,8 +67,4 @@ const ProductNameH2 = styled.h2`
   }
 `;
 
-const StarContainer = styled.div`
-  color: #fda115;
-`;
-
 export default ItemList;

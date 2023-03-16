@@ -6,7 +6,7 @@ import { useContext } from "react";
 import Checkout from "./Checkout";
 
 const Cart = () => {
-  const { addItem, setAddItem } = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
