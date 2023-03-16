@@ -10,7 +10,9 @@ export default LandingImage;
 const StyledLandingImage = styled.img`
   height: 0%;
   width: 0%;
+
   @media only screen and (min-width: 415px) {
+    object-fit: contain;
     padding-top: 10px;
     padding-left: 10px;
     height: 90vh;

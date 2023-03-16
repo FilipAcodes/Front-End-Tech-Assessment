@@ -4,6 +4,7 @@ import Stars from "./SubComponents/Stars";
 import ShoppingCartButton from "./SubComponents/ShoppingCartButton";
 
 const ItemList = ({ item }) => {
+  //The Api sometimes doesn't return any images
   return (
     <>
       {item.map((e, i) => {
@@ -14,9 +15,7 @@ const ItemList = ({ item }) => {
               <ProductNameH2>{e.fulhausProductName}</ProductNameH2>
               <Stars />
               <PriceShoppingCartContainer>
-                <BoldParagraph>
-                  Price: {e.retailPrice.toLocaleString()}$
-                </BoldParagraph>
+                <BoldParagraph>{e.retailPrice.toLocaleString()}$</BoldParagraph>
                 <ShoppingCartButton item={e} />
               </PriceShoppingCartContainer>
             </TextContainerForImage>
@@ -27,8 +26,8 @@ const ItemList = ({ item }) => {
   );
 };
 const StyledSideImages = styled.img`
-  height: 25%;
-  width: 25%;
+  height: 40%;
+  width: 40%;
   @media only screen and (max-width: 414px) {
     height: 60%;
     width: 50%;
@@ -37,6 +36,13 @@ const StyledSideImages = styled.img`
 `;
 
 const ImageContainer = styled.div`
+  border: 1px solid #f1f1f1;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 13%;
+  margin-bottom: 13%;
+  min-height: 40%;
+  min-width: 40%;
   @media only screen and (max-width: 414px) {
     display: flex;
     border: 1px solid #f5f6f6;
@@ -57,8 +63,9 @@ const TextContainerForImage = styled.div`
 `;
 
 const BoldParagraph = styled.p`
+  font-weight: bold;
+
   @media only screen and (max-width: 414px) {
-    font-weight: bold;
     position: absolute;
     right: 1;
     bottom: 0;
