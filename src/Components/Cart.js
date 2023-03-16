@@ -44,7 +44,7 @@ const Cart = () => {
               );
             });
           })}
-        <Total>Total : ${total.toFixed(2)}</Total>
+        <Total>Total ${total.toFixed(2)}</Total>
         <CheckOutButton>Checkout</CheckOutButton>
       </SidebarContainer>
     </>
@@ -54,16 +54,22 @@ const Cart = () => {
 const SidebarContainer = styled.div`
   position: fixed;
   top: 0;
-  left: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  right: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
   overflow-y: auto;
   background-color: #fff;
   box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease-in-out;
+  transition: right 0.3s ease-in-out;
   z-index: 9999;
   border-bottom: 1px solid black;
+  width: 33%;
+  height: 80%;
+  border: 1px solid black;
+
   @media only screen and (max-width: 414px) {
     width: 100%;
     height: 100%;
+    transition: left 0.3s ease-in-out;
+    left: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
   }
 `;
 
@@ -76,15 +82,21 @@ const CloseButton = styled.button`
 `;
 
 const CartButton = styled.button`
-  position: absolute;
-  top: 0%;
-  left: 0%;
+  font-size: 30px;
   background-color: black;
+  margin-top: 7px;
+  margin-right: 5px;
   border: none;
   color: white;
+  @media only screen and (min-width: 415px) {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+  }
   @media only screen and (max-width: 414px) {
-    font-size: 30px;
-    margin-top: 7px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
     margin-left: 5px;
   }
   &:hover {
@@ -100,14 +112,12 @@ const CartContent = styled.h2`
 `;
 
 const CheckOutButton = styled.button`
-  @media only screen and (max-width: 414px) {
-    width: 100%;
-    height: 50px;
-    font-size: 20px;
-  }
   color: white;
   background: black;
   border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
 `;
 const Total = styled.p`
   color: black;

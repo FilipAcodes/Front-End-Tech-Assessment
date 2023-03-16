@@ -31,8 +31,11 @@ const ItemList = ({ item }) => {
   );
 };
 const StyledSideImages = styled.img`
-  height: 60%;
-  width: 60%;
+  @media only screen and (min-width: 415px) {
+    height: 60%;
+    width: 60%;
+    margin-left: 15%;
+  }
   @media only screen and (max-width: 414px) {
     height: 60%;
     width: 50%;
@@ -60,6 +63,7 @@ const ImageContainer = styled.div`
 `;
 
 const TextContainerForImage = styled.div`
+  margin-left: 5px;
   @media only screen and (max-width: 414px) {
     display: flex;
     flex-direction: column;
