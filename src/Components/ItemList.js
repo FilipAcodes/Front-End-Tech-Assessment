@@ -5,12 +5,17 @@ import ShoppingCartButton from "./SubComponents/ShoppingCartButton";
 
 const ItemList = ({ item }) => {
   //The Api sometimes doesn't return any images
+  //So I added some extra conditionals
   return (
     <>
       {item.map((e, i) => {
         return (
           <ImageContainer key={e._id}>
-            <StyledSideImages src={e.imageURLs[i]}></StyledSideImages>
+            {e.imageURLs[i] ? (
+              <StyledSideImages src={e.imageURLs[i]} />
+            ) : (
+              <StyledSideImages src={e.imageURLs[3]} />
+            )}
             <TextContainerForImage>
               <ProductNameH2>{e.fulhausProductName}</ProductNameH2>
               <Stars />
@@ -26,8 +31,8 @@ const ItemList = ({ item }) => {
   );
 };
 const StyledSideImages = styled.img`
-  height: 40%;
-  width: 40%;
+  height: 60%;
+  width: 60%;
   @media only screen and (max-width: 414px) {
     height: 60%;
     width: 50%;
@@ -36,13 +41,13 @@ const StyledSideImages = styled.img`
 `;
 
 const ImageContainer = styled.div`
-  border: 1px solid #f1f1f1;
+  border: 2px solid #f1f1f1;
   margin-left: 5px;
   margin-right: 5px;
-  margin-top: 13%;
-  margin-bottom: 13%;
+  margin-top: 5%;
+  margin-bottom: 5%;
   min-height: 40%;
-  min-width: 40%;
+  min-width: 38%;
   @media only screen and (max-width: 414px) {
     display: flex;
     border: 1px solid #f5f6f6;

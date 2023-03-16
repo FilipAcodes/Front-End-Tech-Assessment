@@ -22,8 +22,7 @@ function App() {
   }
   //I have no basis for the left side image when on desktop
   const randomNumber = Math.floor(Math.random() * 6);
-  console.log(randomNumber);
-  console.log(imageFetch[randomNumber].imageURLs[randomNumber]);
+
   return (
     <>
       <GlobalStyle />
