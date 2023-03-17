@@ -47,8 +47,8 @@ const ImageContainer = styled.div`
   border: 2px solid #f1f1f1;
   margin-left: 5px;
   margin-right: 5px;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   min-height: 40%;
   min-width: 38%;
   @media only screen and (max-width: 414px) {

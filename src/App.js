@@ -20,16 +20,22 @@ function App() {
   if (!imageFetch) {
     return <Loading />;
   }
+  console.log(imageFetch);
   //I have no basis for the left side image when on desktop
-  const randomNumber = Math.floor(Math.random() * 6);
+  //Very basic Logic to remove to potential empty Image if the API returns undefined
+  let imageUrl;
+  const randomNumber = Math.floor(Math.random() * imageFetch.length);
+  if (!imageFetch[randomNumber].imageURLs[randomNumber]) {
+    imageUrl = imageFetch[2].imageURLs[2];
+  } else {
+    imageUrl = imageFetch[randomNumber].imageURLs[randomNumber];
+  }
 
   return (
     <>
       <GlobalStyle />
       <Header />
-      <LandingImage
-        imagesrc={imageFetch[randomNumber].imageURLs[randomNumber]}
-      />
+      <LandingImage imagesrc={imageUrl} />
       <SideImageContainer>
         <ItemList item={imageFetch} />
       </SideImageContainer>
